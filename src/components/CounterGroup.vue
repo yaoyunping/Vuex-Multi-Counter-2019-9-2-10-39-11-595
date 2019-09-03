@@ -1,4 +1,4 @@
-<template>
+template>
     <div class="counter-group">
         <h2>
             Counter Number:
@@ -13,7 +13,7 @@
                     @update="handleValueChange"
             />
         </div>
-        <CounterSum :counterSum="counterSum"></CounterSum>
+        <CounterSum></CounterSum>
     </div>
 </template>
 
@@ -31,30 +31,23 @@
             counterNumber: Number
         },
         computed: {
-            counterSum: function () {
-                let sum = 0;
-                this.counters.forEach(element => {
-                    sum = sum + element.value;
-                });
-                return sum;
-            }
+            counters:function(){
+                return this.$store.state.counters;
+            },
+          
         },
         created: function () {
+            console.log(this.$store.state);
             // 根据 counterNumber 生成 counter 数据和组件
             for (let i = 0; i < this.counterNumber; i++) {
-                this.counters.push({
+                this.$store.state.counters.push({
                     value: 0
                 });
             }
         },
         methods: {
             handleValueChange: function (index, value,) {
-                this.counters[index].value = value;
-            }
-        },
-        data: function () {
-            return {
-                counters: []
+                this.$store.state.counters[index].value = value;
             }
         }
     }

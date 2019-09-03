@@ -9,8 +9,10 @@
 <script>
     export default {
         name: 'counter-sum',
-        props: {
-            counterSum: Number
+        computed:{
+             counterSum: function () {
+                return this.$store.state.totalSum;
+            }
         }
     }
 </script>

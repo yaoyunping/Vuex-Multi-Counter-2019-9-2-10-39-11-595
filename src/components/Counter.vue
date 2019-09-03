@@ -1,4 +1,4 @@
-<template>
+template>
     <div class="counter">
         <button class="plus" @click="plus">+</button>
         <span class="value">{{value}}</span>
@@ -15,10 +15,10 @@
         },
         methods: {
             minus: function () {
-                this.$emit('update', this.index, this.value - 1)
+                this.$store.commit("minusValue",this.index);
             },
             plus: function () {
-                this.$emit('update', this.index, this.value + 1)
+                this.$store.commit("plusValue",this.index);
             }
         }
     }
