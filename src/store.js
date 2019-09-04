@@ -2,7 +2,11 @@ export default{
     state: {
       // 应用的数据
       test: 'hello vuex',
-      counters:[],
+      counters:[
+          {value:0},
+          {value:0},
+          {value:0}
+      ],
       totalSum:0
     },
     getters:{

@@ -1,4 +1,4 @@
-template>
+<template>
     <div class="counter">
         <button class="plus" @click="plus">+</button>
         <span class="value">{{value}}</span>
@@ -15,10 +15,13 @@ template>
         },
         methods: {
             minus: function () {
-                this.$store.commit("minusValue",this.index);
+                this.$store.commit("minusValue", this.index);
             },
             plus: function () {
-                this.$store.commit("plusValue",this.index);
+                this.$store.commit("plusValue", this.index);
+                if (this.value >= 10) {
+                    this.$router.push({ path: '/' })
+                }
             }
         }
     }

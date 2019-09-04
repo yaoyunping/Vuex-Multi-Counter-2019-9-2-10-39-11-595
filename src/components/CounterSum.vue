@@ -11,7 +11,11 @@
         name: 'counter-sum',
         computed:{
              counterSum: function () {
-                return this.$store.state.totalSum;
+                 let sum = this.$store.state.totalSum;
+                if (sum >= 10) {
+                    this.$router.push({ path: '/' })
+                }
+                return sum;
             }
         }
     }

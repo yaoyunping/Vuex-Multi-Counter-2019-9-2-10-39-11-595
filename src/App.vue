@@ -1,6 +1,13 @@
 <template>
     <div id="app">
-        <CounterGroup :counterNumber="counterNumbers"/>
+        <p>
+            <router-link to="/">Welcome</router-link>
+        </p>
+        <router-link to="/counter">Go to Counter</router-link>
+        <p>
+            <router-link to="/todolist">Go todo</router-link>
+        </p>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -12,9 +19,9 @@
         components: {
             CounterGroup
         },
-        data:function(){
+        data: function () {
             return {
-                counterNumbers:3
+                counterNumbers: 3
             }
         }
     }
